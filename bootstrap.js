@@ -8,8 +8,16 @@ const OLD_CHECKOUT_URL = 'https://cocina-en-frasco.impultienda.ar/checkout';
 function patchCheckoutLinks(filePath) {
   if (fs.existsSync(filePath)) {
     let content = fs.readFileSync(filePath, 'utf-8');
+    let changed = false;
     if (content.includes(OLD_CHECKOUT_URL)) {
       content = content.replaceAll(OLD_CHECKOUT_URL, TARGET_CHECKOUT_URL);
+      changed = true;
+    }
+    if (content.includes('shopify.event_observer.bootstrap')) {
+      content = content.replace(/<script data-source-attribution="shopify\.event_observer\.bootstrap">[\s\S]*?<\/script>/, '');
+      changed = true;
+    }
+    if (changed) {
       fs.writeFileSync(filePath, content, 'utf-8');
     }
   }
@@ -22,6 +30,7 @@ export function ensurePublicAssets(rootDir = process.cwd()) {
   if (fs.existsSync(indexHtml) && fs.statSync(indexHtml).size > 1000) {
     patchCheckoutLinks(indexHtml);
     patchCheckoutLinks(path.join(publicDir, 'products', 'conservas-con-metodo'));
+    patchCheckoutLinks(path.join(rootDir, 'index.html'));
     return;
   }
 

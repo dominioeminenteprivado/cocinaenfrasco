@@ -1,0 +1,13 @@
+[build]
+  publish = "public"
+  command = "node build.js"
+
+[[redirects]]
+  from = "/products/conservas-con-metodo"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

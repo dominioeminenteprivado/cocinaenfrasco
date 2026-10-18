@@ -22,6 +22,12 @@ app.all(['/.well-known/shopify/monorail/*', '/.well-known/ucp', '/sf_private_acc
   res.status(200).json({ status: 'ok' });
 });
 
+// Shopify event observer reporter dummy mock for cached clients
+app.get('*/event_observer_reporter*', (req, res) => {
+  res.setHeader('Content-Type', 'application/javascript');
+  res.send('export const $ = () => {}; export default { $: () => {} };');
+});
+
 // Cart JSON endpoint
 app.get('/cart.js', (req, res) => {
   const cartFile = path.join(PUBLIC_DIR, 'cart.js');
