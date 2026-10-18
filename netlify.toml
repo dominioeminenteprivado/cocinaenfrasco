@@ -1,0 +1,20 @@
+[build]
+  command = "npm run build"
+  publish = "public"
+
+# The product page is an extensionless HTML file, so make sure browsers render it as HTML
+[[headers]]
+  for = "/products/conservas-con-metodo"
+  [headers.values]
+    Content-Type = "text/html; charset=utf-8"
+
+[[redirects]]
+  from = "/products/conservas-con-metodo/"
+  to = "/products/conservas-con-metodo"
+  status = 200
+
+# Any other page navigation falls back to the main page instead of a 404
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
