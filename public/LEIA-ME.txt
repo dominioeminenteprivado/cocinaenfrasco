@@ -1,0 +1,18 @@
+COMO USAR ESTE ESPELHO
+======================
+
+IMPORTANTE: NAO abra o index.html dando dois cliques (file://).
+O site usa caminhos a partir da RAIZ do dominio, entao aberto como arquivo
+ele fica em branco (o JS nao carrega e o conteudo nao aparece).
+
+JEITO CERTO (gratis e rapido):
+1. Entre em https://app.netlify.com/drop
+2. Arraste a PASTA inteira deste projeto pra dentro da pagina.
+3. Pronto: o Netlify te da um link funcionando na hora.
+
+Tambem funciona em Vercel, GitHub Pages, Cloudflare Pages, Hostinger etc.,
+desde que a pasta seja servida na RAIZ do site (nao numa subpasta).
+
+O QUE NAO FUNCIONA (e normal): login, criar conta e qualquer coisa que
+dependa do servidor original do site. O espelho copia a aparencia e a
+interatividade do front, nao o backend.

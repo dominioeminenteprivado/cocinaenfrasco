@@ -1,0 +1,8 @@
+{
+  "name": "Conservas Artesanales - Cocina en Frasco",
+  "description": "Sistema completo de conservas caseras artesanales con método paso a paso, recetas, checklist anti errores y tablas de conservación.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
